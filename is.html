@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<actiate-exp></actiate-exp>
+		</div>		
+		
+		<script src="//cdn.bootcss.com/vue/1.0.2/vue.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			
+			
+			Vue.component('actiate-exp', {
+				activate: function ( done ) {
+					var self = this;
+					loadDataAsync(function ( data ) {
+						self.smoeData = data;
+						done();
+					});
+				}
+			});
+			
+		</script>
+	</body>
+</html>
