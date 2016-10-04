@@ -7,21 +7,22 @@
 	<body>
 		
 		<div id="app">
-			<actiate-exp></actiate-exp>
+			<pink v-for="item in msg" :wind="item" :item="item" :index="$index"></pink>
 		</div>		
 		
 		<script src="//cdn.bootcss.com/vue/1.0.2/vue.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
 			
+			Vue.component('pink', {
+				props: ['wind'],
+				template: '<div>pink -- {{wind}}</div>'
+			});
 			
-			Vue.component('actiate-exp', {
-				activate: function ( done ) {
-					var self = this;
-					loadDataAsync(function ( data ) {
-						self.smoeData = data;
-						done();
-					});
+			new Vue({
+				el: '#app',
+				data: {
+					msg: ['pink', 'tan', 'red', 'yellow']
 				}
 			});
 			
